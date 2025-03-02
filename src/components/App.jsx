@@ -1,14 +1,12 @@
 import { Routes, Route, NavLink } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import MoviesPage from "../pages/MoviesPage/Moviespage";
+import Navigation from "./Navigation/Navigation";
 
 export default function App() {
     return (
         <div>
-            <nav>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/movies">Movies</NavLink>
-            </nav>
+            <Navigation />
 
             <Routes>
                 <Route path="/" element={<HomePage />} />
