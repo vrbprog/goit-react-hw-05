@@ -1,0 +1,26 @@
+.contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 254px;
+    gap: 16px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+button:hover {
+    background-color: rgb(249, 179, 185);
+}
