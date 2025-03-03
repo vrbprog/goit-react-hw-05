@@ -3,11 +3,11 @@
     align-items: center;
     justify-content: start;
     gap: 28px;
-    padding: 28px 12px;
+    padding: 16px;
 }
 
 .link {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 600;
     text-decoration: none;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
