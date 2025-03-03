@@ -1,0 +1,32 @@
+.movieCard {
+    max-width: 180px;
+}
+
+.card {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: all 200ms ease-in-out;
+}
+
+.card:hover {
+    scale: 1.03;
+    cursor: pointer;
+}
+
+.title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+.date {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}

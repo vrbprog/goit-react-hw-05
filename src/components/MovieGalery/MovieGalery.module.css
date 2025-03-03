@@ -1,0 +1,21 @@
+.movieGalery {
+    display: flex;
+    flex-wrap: wrap;
+    margin-block: 16px;
+    gap: 16px;
+    max-width: 964px;
+    margin-inline: 24px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.pages {
+    display: flex;
+    gap: 8px;
+    margin-block: 16px;
+}

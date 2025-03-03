@@ -3,10 +3,14 @@
     align-items: center;
     justify-content: start;
     gap: 28px;
-    padding: 16px;
+    padding: 12px 32px;
+    width: 100%;
+    background-color: #2e31dd;
 }
 
 .link {
+    padding-right: 24px;
+    color: #21035a;
     font-size: 28px;
     font-weight: 600;
     text-decoration: none;
@@ -16,12 +20,12 @@
 }
 
 .link:hover {
-    color: #ef36d0;
+    color: #f1f1f1;
 }
 
 .active {
     text-decoration: underline;
-    color: #ef36d0;
-    text-decoration-color: #ef36d0;
+    color: #f1f1f1;
+    text-decoration-color: #f1f1f1;
     text-decoration-thickness: 2px;
 }
