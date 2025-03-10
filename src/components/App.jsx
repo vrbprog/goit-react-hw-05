@@ -8,13 +8,13 @@ import MovieDetailsPage from "../pages/MovieDetailsPage/MovieDetailsPage";
 
 export default function App() {
     const [movies, setMovies] = useState([]);
-    const [showMovies, setShowMovies] = useState([]);
 
     useEffect(() => {
         const getArticlesData = async () => {
             try {
                 const data = await getTrendingMovies(1);
                 setMovies(data.results);
+                console.log(data.results);
             } catch (error) {
                 console.log(error);
             }
