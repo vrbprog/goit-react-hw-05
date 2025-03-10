@@ -1,29 +1,21 @@
-import MovieCard from '../MovieCard/MovieCard';
-import css from './MovieGalery.module.css';
-import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+import MovieCard from "../MovieCard/MovieCard";
+import css from "./MovieGalery.module.css";
+import { Link, NavLink } from "react-router-dom";
 
-export default function MovieGalery({ movies, updatePage, showPage }) {
-    
-    const handleNextPage = () => {
-        updatePage(1);
-    }
-
-    const handlePrevPage = () => {
-        updatePage(-1);
-    }
-
+export default function MovieGalery({ movies }) {
     return (
         <div className={css.container}>
-            <AiFillCaretLeft size={70} color={showPage > 1 ? 'blue' : 'grey'} onClick={handlePrevPage} />
             <ul className={css.movieGalery}>
-                {movies.map(({ poster_path, id, release_date, title }) => (    
+                {movies.map(({ poster_path, id, release_date, title }) => (
                     <li key={id}>
-                        <MovieCard movie={{ poster_path, release_date, title }  } />
+                        <NavLink to={`/movies/${id}`}>
+                            <MovieCard
+                                movie={{ poster_path, release_date, title }}
+                            />
+                        </NavLink>
                     </li>
                 ))}
             </ul>
-            <AiFillCaretRight size={70} color={'blue'} onClick={handleNextPage}/>
         </div>
     );
-    
-};
+}
