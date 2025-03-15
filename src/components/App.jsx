@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import HomePage from "../pages/HomePage/HomePage";
-import MoviesPage from "../pages/MoviesPage/Moviespage";
+import MoviesPage from "../pages/MoviesPage/MoviesPage";
 import Navigation from "./Navigation/Navigation";
 import { getTrendingMovies } from "../services/themoviedb";
 import MovieDetailsPage from "../pages/MovieDetailsPage/MovieDetailsPage";

@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
+    margin: 24px;
+}
+
+.img {
+    margin-right: 28px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.genres {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.info {
+    margin: 12px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 16px;
+}
