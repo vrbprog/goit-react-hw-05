@@ -5,6 +5,7 @@ import css from "./MovieDetailsPage.module.css";
 import { BlinkBlur } from "react-loading-indicators";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import clsx from "clsx";
 
 export default function MovieDetailsPage() {
     const { moviesId } = useParams();
@@ -38,6 +39,10 @@ export default function MovieDetailsPage() {
         return  date.toString().split('-')[0];
     }
 
+    const activeLink = ({ isActive }) => {
+            return clsx(css.navLink, isActive && css.active);
+        };
+
     const htmlCode =
         <div className={css.container}>
             <img className={css.img} width={500} src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} />
@@ -60,10 +65,10 @@ export default function MovieDetailsPage() {
                 <div className={css.addInfo}>
                     <h2>Additional information:</h2>
                     <ul className={css.addList}>
-                        <NavLink to="cast" className={css.navLink}>
+                        <NavLink to="cast" className={activeLink}>
                         Cast
                         </NavLink>
-                        <NavLink to="reviews" className={css.navLink}>
+                        <NavLink to="reviews" className={activeLink}>
                         Reviews
                         </NavLink>
                     </ul>
