@@ -42,3 +42,35 @@
     flex-direction: column;
     gap: 16px;
 }
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.errorLoading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: red;
+}
+
+.addInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.addList {
+    display: flex;
+    gap: 32px;
+}
+
+.navLink {
+    text-decoration: none;
+    font-size: 24px;
+}

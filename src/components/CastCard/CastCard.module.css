@@ -1,0 +1,21 @@
+.castCard {
+    max-width: 140px;
+    height: 228px;
+    overflow: hidden;
+}
+
+.cardFoto {
+    width: 140px;
+    height: 208px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: all 200ms ease-in-out;
+}
+
+.name {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}

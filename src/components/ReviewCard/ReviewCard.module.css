@@ -1,0 +1,13 @@
+.review {
+    border-radius: 30px;
+    border: 1px solid #000;
+    padding: 16px;
+    margin: 16px;
+}
+
+.spinner {
+    margin: 64px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

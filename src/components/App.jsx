@@ -5,6 +5,9 @@ import MoviesPage from "../pages/MoviesPage/MoviesPage";
 import Navigation from "./Navigation/Navigation";
 import { getTrendingMovies } from "../services/themoviedb";
 import MovieDetailsPage from "../pages/MovieDetailsPage/MovieDetailsPage";
+import MovieCast from "../components/MovieCast/MovieCast";
+import MovieReviews from "../components/MovieReviews/MovieReviews";
+
 
 export default function App() {
     const [movies, setMovies] = useState([]);
@@ -31,7 +34,10 @@ export default function App() {
                 <Route
                     path="/movies/:moviesId"
                     element={<MovieDetailsPage />}
-                ></Route>
+                >
+                    <Route path="cast" element={<MovieCast />} />
+                    <Route path="reviews" element={<MovieReviews />} />
+                </Route>
                 <Route path="/movies" element={<MoviesPage />} />
             </Routes>
         </div>

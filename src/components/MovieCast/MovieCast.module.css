@@ -1,0 +1,14 @@
+.castList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.spinner {
+    margin: 64px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
