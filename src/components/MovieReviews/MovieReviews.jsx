@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviewsMovie } from '../../services/themoviedb';
-import ReviewCard from '../ReviewCard/ReviewCard';
 import css from './MovieReviews.module.css';
-import { BlinkBlur } from "react-loading-indicators";
+import ReviewList from '../ReviewList/ReviewList';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 
 export default function MovieReviews() {
@@ -32,28 +32,12 @@ export default function MovieReviews() {
                 getCastData();
     }, [moviesId]);
     
-    const htmlCode =
-        <div className={css.container}>
-            <ul className={css.reviewList}>
-                {reviews.map(({ id, author, content }) => (
-                    <li key={id}>
-                        <ReviewCard author={author} review={content} />
-                    </li>
-                ))}
-            </ul>
-        </div>
-    
-    const loadingSpinner =
-        <div className={css.spinner}>
-            <BlinkBlur color="#32cd32" size="large" text="Loading..." textColor="#2b2aed"></BlinkBlur>
-        </div>
-
     return (
         <>
             {
-                isLoading ? loadingSpinner :
+                isLoading ? <LoadingSpinner /> :
                 isErrorLoading ? <h1 className={css.errorLoading}>Sorry, something went wrong...</h1> :
-                reviews.length > 0 ? htmlCode : <h1 className={css.noReviews}>Sorry, no reviews...</h1>
+                    reviews.length > 0 ? <ReviewList reviews={reviews} /> : <h2 className={css.noReviews}>Sorry, no reviews...</h2>
             }
         </>
     );

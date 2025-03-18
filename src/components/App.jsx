@@ -8,18 +8,22 @@ import MovieDetailsPage from "../pages/MovieDetailsPage/MovieDetailsPage";
 import MovieCast from "../components/MovieCast/MovieCast";
 import MovieReviews from "../components/MovieReviews/MovieReviews";
 
-
 export default function App() {
     const [movies, setMovies] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const getArticlesData = async () => {
+            setIsLoading(true);
             try {
                 const data = await getTrendingMovies(1);
                 setMovies(data.results);
                 console.log(data.results);
             } catch (error) {
                 console.log(error);
+            }
+            finally {
+                setIsLoading(false);
             }
         };
         getArticlesData();
@@ -30,7 +34,7 @@ export default function App() {
             <Navigation />
 
             <Routes>
-                <Route path="/" element={<HomePage movies={movies} />} />
+                <Route path="/" element={<HomePage movies={movies} loading={isLoading} />} />
                 <Route
                     path="/movies/:moviesId"
                     element={<MovieDetailsPage />}

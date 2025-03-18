@@ -8,7 +8,7 @@ export default function CastCard({path, name}) {
                 className={css.cardFoto}
                 alt={name}
                 src={img_url}
-            />
+             />
             <p className={css.name}>{name}</p>
         </div>
     );

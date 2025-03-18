@@ -1,8 +1,3 @@
-.reviewList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-}
 
 .noReviews {
     margin: 64px auto;

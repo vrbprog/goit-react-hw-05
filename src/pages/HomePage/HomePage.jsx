@@ -1,12 +1,12 @@
 import MovieGalery from "../../components/MovieGalery/MovieGalery";
 import css from "./HomePage.module.css";
 
-export default function HomePage({movies}) {
+export default function HomePage({movies, loading}) {
 
     return (
         <div>
             <h1 className={css.headerTrending}>Trending Movies</h1>
-            <MovieGalery movies={movies} />
+            <MovieGalery movies={movies} loading={loading} />
         </div>
     );
 }

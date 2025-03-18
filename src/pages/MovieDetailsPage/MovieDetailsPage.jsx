@@ -2,10 +2,10 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getInfoMovie } from "../../services/themoviedb";
 import css from "./MovieDetailsPage.module.css";
-import { BlinkBlur } from "react-loading-indicators";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import clsx from "clsx";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 export default function MovieDetailsPage() {
     const { moviesId } = useParams();
@@ -77,14 +77,9 @@ export default function MovieDetailsPage() {
             </div>
         </div>
     
-    const loadingSpinner =
-        <div className={css.spinner}>
-            <BlinkBlur color="#32cd32" size="large" text="Loading..." textColor="#2b2aed"></BlinkBlur>
-        </div>
-
     return (
         <>
-            { isLoading ? loadingSpinner :
+            { isLoading ? <LoadingSpinner /> :
                 isErrorLoading ? <h1 className={css.errorLoading}>Sorry, something went wrong...</h1> : htmlCode
             }
         </>
