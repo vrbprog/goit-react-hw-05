@@ -35,7 +35,7 @@ export default function MovieCast() {
         <>
             { isLoading ? <LoadingSpinner /> :
                 isErrorLoading ? <h1 className={css.errorLoading}>Sorry, something went wrong...</h1> :
-                    casts.length > 0 ? <CastList casts={casts} /> : <h2 className={css.noReviews}>Sorry, no casts...</h2>
+                    casts.length > 0 ? <CastList casts={casts} /> : <h2 className={css.noCasts}>Sorry, no casts...</h2>
             }
         </>
     );

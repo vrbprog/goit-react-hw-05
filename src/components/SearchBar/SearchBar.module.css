@@ -1,0 +1,41 @@
+.searchContainer {
+    position: absolute;
+    top: 19px;
+    left: 300px;
+    z-index: 9;
+    width: 280px;
+    height: 32px;
+    background-color: #2e31dd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchBar {
+    width: 200px;
+    height: 24px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.button {
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-width: 0px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.input {
+    padding-left: 4px;
+    border-width: 0px;
+
+    &:focus {
+        outline: none;
+    }
+}

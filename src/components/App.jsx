@@ -13,7 +13,7 @@ export default function App() {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        const getArticlesData = async () => {
+        const getTrending = async () => {
             setIsLoading(true);
             try {
                 const data = await getTrendingMovies(1);
@@ -26,7 +26,7 @@ export default function App() {
                 setIsLoading(false);
             }
         };
-        getArticlesData();
+        getTrending();
     }, []);
 
     return (
