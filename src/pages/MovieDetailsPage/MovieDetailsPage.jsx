@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import clsx from "clsx";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import GoBackButton from "../../components/GoBackButton/GoBackButton";
 
 export default function MovieDetailsPage() {
     const { moviesId } = useParams();
@@ -43,46 +44,48 @@ export default function MovieDetailsPage() {
             return clsx(css.navLink, isActive && css.active);
         };
 
-    const htmlCode =
-        <div className={css.container}>
-            <img className={css.img} width={500} src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} />
-            <div className={css.info}>
-                <div className={css.title}>
-                    <h1>{movieInfo.title} ({ getYear(movieInfo.release_date) })</h1>
+    const detailsPage =
+        <>
+            <GoBackButton />
+            <div className={css.container}>
+                <img className={css.img} width={500} src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} />
+                <div className={css.info}>
+                    <div className={css.title}>
+                        <h1>{movieInfo.title} ({ getYear(movieInfo.release_date) })</h1>
+                    </div>
+                    <div className={css.score}>
+                        <h2>User score:</h2>
+                        <h2>{movieInfo.vote_average}</h2>
+                    </div>
+                    <h2>Overview</h2>
+                    <p className={css.overview}> {movieInfo.overview}</p>
+                    <div className={css.genres}>
+                        <h2>Genres:</h2>
+                        { genres.map((genre) => (
+                        <span key={genre.id}>{genre.name} </span>
+                    ))}
+                    </div> 
+                    <div className={css.addInfo}>
+                        <h2>Additional information:</h2>
+                        <ul className={css.addList}>
+                            <NavLink to="cast" className={activeLink}>
+                            Cast
+                            </NavLink>
+                            <NavLink to="reviews" className={activeLink}>
+                            Reviews
+                            </NavLink>
+                        </ul>
+                    </div>
+                    <Outlet />
                 </div>
-                <div className={css.score}>
-                    <h2>User score:</h2>
-                    <h2>{movieInfo.vote_average}</h2>
-                </div>
-                <h2>Overview</h2>
-                <p className={css.overview}> {movieInfo.overview}</p>
-                <div className={css.genres}>
-                    <h2>Genres:</h2>
-                    { genres.map((genre) => (
-                    <span key={genre.id}>{genre.name} </span>
-                ))}
-                </div> 
-                <div className={css.addInfo}>
-                    <h2>Additional information:</h2>
-                    <ul className={css.addList}>
-                        <NavLink to="cast" className={activeLink}>
-                        Cast
-                        </NavLink>
-                        <NavLink to="reviews" className={activeLink}>
-                        Reviews
-                        </NavLink>
-                    </ul>
-                </div>
-                <Outlet />
             </div>
-        </div>
+        </>
     
     return (
         <>
             { isLoading ? <LoadingSpinner /> :
-                isErrorLoading ? <h1 className={css.errorLoading}>Sorry, something went wrong...</h1> : htmlCode
+                isErrorLoading ? <h1 className={css.errorLoading}>Sorry, something went wrong...</h1> : detailsPage
             }
         </>
-        
     );
 }

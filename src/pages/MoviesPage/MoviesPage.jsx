@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import MovieGalery from "../../components/MovieGalery/MovieGalery";
+import MovieList from "../../components/MovieList/MovieList";
 import css from "./MoviesPage.module.css";
 import { searchMovie } from "../../services/themoviedb";
+import GoBackButton from "../../components/GoBackButton/GoBackButton";
 
 export default function MoviesPage() {
 
@@ -19,7 +20,7 @@ export default function MoviesPage() {
         if (!movieQuery) {
             return;
         }
-        
+
         const getSearching = async () => {
             setIsLoading(true);
             try {
@@ -39,8 +40,9 @@ export default function MoviesPage() {
     return (
         <div>
             <SearchBar request={onQuery} />
+            <GoBackButton />
             <h1 className={css.headerSearching}>{movieQuery}</h1>
-            <MovieGalery movies={searchingMovies} loading={isLoading} />
+            <MovieList movies={searchingMovies} loading={isLoading} />
         </div>
     );
 }

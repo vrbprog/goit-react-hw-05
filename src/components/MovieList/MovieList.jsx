@@ -1,5 +1,5 @@
 import MovieCard from "../MovieCard/MovieCard";
-import css from "./MovieGalery.module.css";
+import css from "./MovieList.module.css";
 import { NavLink } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
