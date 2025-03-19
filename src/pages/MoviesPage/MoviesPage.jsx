@@ -3,7 +3,6 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
 import css from "./MoviesPage.module.css";
 import { searchMovie } from "../../services/themoviedb";
-import GoBackButton from "../../components/GoBackButton/GoBackButton";
 
 export default function MoviesPage() {
 
@@ -40,8 +39,7 @@ export default function MoviesPage() {
     return (
         <div>
             <SearchBar request={onQuery} />
-            <GoBackButton />
-            <h1 className={css.headerSearching}>{movieQuery}</h1>
+             <h1 className={css.headerSearching}>{movieQuery}</h1>
             <MovieList movies={searchingMovies} loading={isLoading} />
         </div>
     );

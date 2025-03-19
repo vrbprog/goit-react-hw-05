@@ -1,12 +1,13 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
 import { getInfoMovie } from "../../services/themoviedb";
 import css from "./MovieDetailsPage.module.css";
 import { NavLink } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import clsx from "clsx";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
-import GoBackButton from "../../components/GoBackButton/GoBackButton";
+import { CgArrowLeftR } from "react-icons/cg";
+
 
 export default function MovieDetailsPage() {
     const { moviesId } = useParams();
@@ -14,6 +15,9 @@ export default function MovieDetailsPage() {
     const [genres, setGenres] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isErrorLoading, setIsErrorLoading] = useState(false);
+    const location = useLocation();
+    const backRef = useRef(location.state ?? "/");
+
     
     useEffect(() => {
         setIsLoading(true);
@@ -46,7 +50,7 @@ export default function MovieDetailsPage() {
 
     const detailsPage =
         <>
-            <GoBackButton />
+            <NavLink to={backRef.current} state={location} className={css.button}><CgArrowLeftR /> Go back</NavLink>
             <div className={css.container}>
                 <img className={css.img} width={500} src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} />
                 <div className={css.info}>

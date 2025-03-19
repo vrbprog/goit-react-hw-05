@@ -3,7 +3,7 @@ import css from "./MovieList.module.css";
 import { NavLink } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
-export default function MovieGalery({ movies, loading }) {
+export default function MovieList({ movies, loading }) {
     return (
         <div className={css.container}>
             {loading ? <LoadingSpinner/> :

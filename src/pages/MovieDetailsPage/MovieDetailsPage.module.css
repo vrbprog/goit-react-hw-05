@@ -81,3 +81,23 @@
     text-decoration-color: #605df5;
     text-decoration-thickness: 2px;
 }
+
+.button {
+    background-color: #ffffff;
+    width: 122px;
+    border: none;
+    border-radius: 8px;
+    color: rgb(44, 22, 245);
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 24px 0px 0px 24px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #5296f0;
+    color: white;
+}
