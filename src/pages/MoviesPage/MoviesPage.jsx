@@ -3,19 +3,30 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import MovieList from "../../components/MovieList/MovieList";
 import css from "./MoviesPage.module.css";
 import { searchMovie } from "../../services/themoviedb";
+import { useSearchParams } from "react-router-dom";
 
 export default function MoviesPage() {
 
     const [searchingMovies, setSearchingMovies] = useState([]);
     const [movieQuery, setMovieQuery] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-
+    const [searchParams, setSearchParams] = useSearchParams();
+    const updatedParams = new URLSearchParams(searchParams);
+  
     const onQuery = (query) => {
         setMovieQuery(query);
+        updatedParams.set("query", query);
+        setSearchParams(updatedParams);
     }
 
     useEffect(() => {
+        if (searchParams.has("query")) {
+            setMovieQuery(searchParams.get("query"));
+        }
+    }, [searchParams]);
 
+    useEffect(() => {
+        
         if (!movieQuery) {
             return;
         }
