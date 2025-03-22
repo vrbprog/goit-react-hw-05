@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom";
 import clsx from "clsx";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { CgArrowLeftR } from "react-icons/cg";
-
+import photo from "/src/assets/cinema.png";
 
 export default function MovieDetailsPage() {
     const { moviesId } = useParams();
@@ -46,13 +46,19 @@ export default function MovieDetailsPage() {
 
     const activeLink = ({ isActive }) => {
             return clsx(css.navLink, isActive && css.active);
+    };
+    
+    const getPhoto = () => {
+                if (movieInfo.poster_path === null) return photo;
+                else return `https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`;
         };
+    const img_url = getPhoto();
 
     const detailsPage =
         <>
             <NavLink to={backRef.current} state={location} className={css.button}><CgArrowLeftR /> Go back</NavLink>
             <div className={css.container}>
-                <img className={css.img} width={500} src={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} />
+                <img className={css.img} width={500} src={img_url} />
                 <div className={css.info}>
                     <div className={css.title}>
                         <h1>{movieInfo.title} ({ getYear(movieInfo.release_date) })</h1>
