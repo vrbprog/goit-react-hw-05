@@ -27,10 +27,8 @@ export default function MovieDetailsPage() {
                     const { data } = await getInfoMovie(moviesId);
                     setMovieInfo(data);
                     setGenres(data.genres);
-                    console.log(data);
-                } catch (error) {
+                } catch {
                     setIsErrorLoading(true);
-                    console.error(error);
                 }
                 finally {
                     setIsLoading(false);
