@@ -2,3 +2,11 @@
     text-align: center;
     margin: 12px 0;
 }
+
+.errorLoading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: red;
+}
