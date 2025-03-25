@@ -7,6 +7,7 @@ import { getTrendingMovies } from "../services/themoviedb";
 import MovieDetailsPage from "../pages/MovieDetailsPage/MovieDetailsPage";
 import MovieCast from "../components/MovieCast/MovieCast";
 import MovieReviews from "../components/MovieReviews/MovieReviews";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 export default function App() {
     const [movies, setMovies] = useState([]);
@@ -43,6 +44,7 @@ export default function App() {
                     <Route path="reviews" element={<MovieReviews />} />
                 </Route>
                 <Route path="/movies" element={<MoviesPage />} />
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </div>
     );
