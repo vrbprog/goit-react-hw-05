@@ -10,6 +10,7 @@ export default function MoviesPage() {
     const [searchingMovies, setSearchingMovies] = useState([]);
     const [movieQuery, setMovieQuery] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [isErrorLoading, setIsErrorLoading] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams();
     const updatedParams = new URLSearchParams(searchParams);
   
@@ -26,19 +27,18 @@ export default function MoviesPage() {
     }, [searchParams]);
 
     useEffect(() => {
-        
         if (!movieQuery) {
             return;
         }
 
         const getSearching = async () => {
+            setIsErrorLoading(false);
             setIsLoading(true);
             try {
                 const data = await searchMovie(movieQuery);
                 setSearchingMovies(data.data.results);
-                console.log(data);
-            } catch (error) {
-                console.log(error);
+            } catch {
+                setIsErrorLoading(true);
             }
             finally {
                 setIsLoading(false);
@@ -48,10 +48,14 @@ export default function MoviesPage() {
     }, [movieQuery]);
 
     return (
-        <div>
+        <>
             <SearchBar request={onQuery} />
-             <h1 className={css.headerSearching}>{movieQuery}</h1>
-            <MovieList movies={searchingMovies} loading={isLoading} />
-        </div>
+            {isErrorLoading ? <h1 style={{ textAlign: "center", color: "red" }}>
+                Sorry, something went wrong...</h1> :
+                <>  <h1 className={css.headerSearching}>{movieQuery}</h1>
+                    <MovieList movies={searchingMovies} loading={isLoading} />
+                </>
+            }
+        </>
     );
 }
